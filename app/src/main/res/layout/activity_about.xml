@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/shape"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="40dp"
+                android:onClick="back"
+                android:src="@drawable/baseline_arrow_back_ios_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_toRightOf="@id/shape"
+                android:fontFamily="@font/kanit_extra_bold"
+                android:text="About BMI"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+
+        </RelativeLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="243dp"
+        android:src="@drawable/bmi_image" />
+
+    <!-- Table Layout -->
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+android:backgroundTint="@color/white"
+        android:background="@drawable/table_bg">
+
+        <!-- Table Header -->
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:background="@drawable/table_bg"
+                android:padding="8dp"
+                android:text="BMI"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:background="@drawable/table_bg"
+
+                android:padding="8dp"
+                android:text="Category"
+                android:textStyle="bold" />
+        </TableRow>
+
+        <!-- Table Rows -->
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:background="@drawable/table_bg"
+                android:padding="8dp"
+                android:text="Less than 18.5" />
+
+            <TextView
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:background="@drawable/table_bg"
+                android:padding="8dp"
+                android:text="Underweight" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:background="@drawable/table_bg"
+                android:padding="8dp"
+                android:text="18.5 to 24.9" />
+
+            <TextView
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:background="@drawable/table_bg"
+                android:padding="8dp"
+                android:text="Healthy Weight" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:background="@drawable/table_bg"
+                android:padding="8dp"
+                android:text="25 to 29.9" />
+
+            <TextView
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:background="@drawable/table_bg"
+                android:padding="8dp"
+                android:text="Overweight" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:background="@drawable/table_bg"
+                android:padding="8dp"
+                android:text="30 and 34.9" />
+
+            <TextView
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:background="@drawable/table_bg"
+                android:padding="8dp"
+                android:text="Obese" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:background="@drawable/table_bg"
+                android:padding="8dp"
+                android:text="34.9 and above" />
+
+            <TextView
+                android:layout_column="2"
+                android:layout_weight="1"
+                android:background="@drawable/table_bg"
+                android:padding="8dp"
+                android:text="Extremely Obese" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

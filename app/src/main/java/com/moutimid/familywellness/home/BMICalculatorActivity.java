@@ -138,7 +138,7 @@ public class BMICalculatorActivity extends AppCompatActivity implements View.OnC
         double heightInMetreSq = heightInMetres * heightInMetres;
         double bmi = weightCounter / heightInMetreSq;
         String bmiValue = decimalFormat.format(bmi);
-        Intent intent = new Intent(this, BMICalculatorActivity.class);
+        Intent intent = new Intent(this, BMIResultActivity.class);
         intent.putExtra("bmiVal", bmiValue);
         startActivity(intent);
     }

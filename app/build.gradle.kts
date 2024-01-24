@@ -52,5 +52,6 @@ dependencies {
     implementation("com.google.firebase:firebase-database:19.3.0")
     implementation("com.google.firebase:firebase-storage:19.1.1")
     implementation("com.google.firebase:firebase-database-ktx")
+    implementation("com.airbnb.android:lottie:3.4.0")
 
 }

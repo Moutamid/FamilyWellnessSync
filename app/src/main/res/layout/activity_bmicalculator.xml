@@ -69,6 +69,7 @@
                     android:focusable="true"
                     app:backgroundTint="@color/bg_layer_3"
                     app:maxImageSize="35dp"
+                    android:tint="@color/statusbar"
                     app:srcCompat="@drawable/ic_add"
                     tools:layout_editor_absoluteX="32dp"
                     tools:layout_editor_absoluteY="128dp" />

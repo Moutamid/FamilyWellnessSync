@@ -21,7 +21,7 @@ public class BMIResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bmicalculator);
+        setContentView(R.layout.activity_bmiresult);
         bmiValue = findViewById(R.id.bmi_value);
         bmiCategory = findViewById(R.id.bmi_category);
         bmiTips = findViewById(R.id.bmi_tips);

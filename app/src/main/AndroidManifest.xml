@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +17,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FamilyWellness"
         tools:targetApi="31">
+        <activity
+            android:name="com.moutimid.familywellness.home.BMI.AboutActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.moutimid.familywellness.home.BMI.MainActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.moutimid.familywellness.home.EmergencyCallActivity"
+            android:exported="false" />
         <activity
             android:name="com.moutimid.familywellness.home.BMIResultActivity"
             android:exported="false" />
@@ -38,7 +52,7 @@
         </activity>
         <activity
             android:name="com.moutimid.familywellness.authetications.LoginActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity android:name="com.moutimid.familywellness.home.MainActivity" />
     </application>
 
