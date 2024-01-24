@@ -16,7 +16,7 @@ import com.moutamid.familywellness.R;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static int DELAY_TIME = 4000;
+    private static int DELAY_TIME = 2800;
 
     Animation topAnim, bottomAnim;
     ImageView imageView;
