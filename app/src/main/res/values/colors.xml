@@ -16,4 +16,8 @@
     <color name="colorCyanBlue">#0B9BE2</color>
     <color name="colorMidBlue">#032B3F</color>
     <color name="colorCoinBackground">#01242b</color>
+
+
+    <color name="background">#F0F4F3</color>
+    <color name="statusbar">#50C2C9</color>
 </resources>
