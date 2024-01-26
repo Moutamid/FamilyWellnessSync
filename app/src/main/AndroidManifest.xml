@@ -6,7 +6,7 @@
         android:name="android.hardware.telephony"
         android:required="false" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-
+<uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -26,13 +26,7 @@
         <activity
             android:name="com.moutimid.familywellness.home.EmergencyCallActivity"
             android:exported="false" />
-        <activity
-            android:name="com.moutimid.familywellness.home.BMIResultActivity"
-            android:exported="false" />
-        <activity
-            android:name="com.moutimid.familywellness.home.BMICalculatorActivity"
-            android:exported="false" />
-        <activity
+       <activity
             android:name="com.moutimid.familywellness.authetications.SignupActivity"
             android:exported="true" />
         <activity
