@@ -24,7 +24,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.moutamid.familywellness.R;
-import com.moutimid.familywellness.home.MainActivity;
+import com.moutimid.familywellness.adminpanel.AdminActivity;
+import com.moutimid.familywellness.user.home.MainActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -40,13 +41,19 @@ public class LoginActivity extends AppCompatActivity {
 
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
-
         if (auth.getCurrentUser() != null) {
+            if (auth.getCurrentUser().getEmail().equals("adminwellnessapp@gmail.com")) {
 //            LOGS USER IN ONCE IT FINDS HE HAD LOGGED IN!
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
-            finish();
-        }
+                startActivity(new Intent(LoginActivity.this, AdminActivity.class));
+                finish();
+            }
+            else
+            {
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                finish();
 
+            }
+        }
         // set the view now
         setContentView(com.moutamid.familywellness.R.layout.activity_login);
 
@@ -118,10 +125,17 @@ public class LoginActivity extends AppCompatActivity {
                                     }
                                 } else {
                                     show_toast("Successfully Login", 1);
+                                    if (email.equals("adminwellnessapp@gmail.com")) {
+                                        Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
 
-                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                    startActivity(intent);
-                                    finish();
+                                        startActivity(intent);
+                                        finish();
+                                    } else {
+                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+
+                                        startActivity(intent);
+                                        finish();
+                                    }
                                 }
                             }
                         });

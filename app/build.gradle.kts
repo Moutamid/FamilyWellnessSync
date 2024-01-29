@@ -53,5 +53,17 @@ dependencies {
     implementation("com.google.firebase:firebase-storage:19.1.1")
     implementation("com.google.firebase:firebase-database-ktx")
     implementation("com.airbnb.android:lottie:3.4.0")
+    implementation("com.squareup.picasso:picasso:2.71828")
+    implementation("com.google.firebase:firebase-messaging:23.0.0")
+    //Circle image
+    implementation("de.hdodenhof:circleimageview:3.1.0")
+    implementation("androidx.legacy:legacy-support-v4:1.0.0")
+
+    implementation("com.android.volley:volley:1.2.1")
+
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.fxn769:stash:1.3.2")
+
 
 }

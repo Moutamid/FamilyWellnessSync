@@ -5,9 +5,12 @@
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
+
     <uses-permission android:name="android.permission.CALL_PHONE" />
-<uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
+        android:name="com.moutimid.familywellness.Helper.MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -18,15 +21,21 @@
         android:theme="@style/Theme.FamilyWellness"
         tools:targetApi="31">
         <activity
-            android:name="com.moutimid.familywellness.home.BMI.AboutActivity"
-            android:exported="true" />
-        <activity
-            android:name="com.moutimid.familywellness.home.BMI.MainActivity"
-            android:exported="true" />
-        <activity
-            android:name="com.moutimid.familywellness.home.EmergencyCallActivity"
+            android:name="com.moutimid.familywellness.user.home.ProfileActivity"
             android:exported="false" />
-       <activity
+        <activity
+            android:name="com.moutimid.familywellness.user.home.Pharmacy.AllCategoriesActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.moutimid.familywellness.user.home.BMI.AboutActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.moutimid.familywellness.user.home.BMI.MainActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.moutimid.familywellness.user.home.EmergencyCallActivity"
+            android:exported="false" />
+        <activity
             android:name="com.moutimid.familywellness.authetications.SignupActivity"
             android:exported="true" />
         <activity
@@ -47,7 +56,58 @@
         <activity
             android:name="com.moutimid.familywellness.authetications.LoginActivity"
             android:exported="true" />
-        <activity android:name="com.moutimid.familywellness.home.MainActivity" />
+        <activity android:name="com.moutimid.familywellness.user.home.MainActivity" />
+        <activity
+            android:name="com.moutimid.familywellness.adminpanel.AddCatogryActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.moutimid.familywellness.adminpanel.EditCatogryActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.moutimid.familywellness.adminpanel.AddProductActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.moutimid.familywellness.adminpanel.EditProductActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.moutimid.familywellness.adminpanel.AdminActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.moutimid.familywellness.user.home.Pharmacy.CategoryActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.moutimid.familywellness.user.home.Pharmacy.ProductInfoActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.moutimid.familywellness.user.home.Pharmacy.CartActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.moutimid.familywellness.user.home.Pharmacy.CartCheckActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.moutimid.familywellness.adminpanel.OrderDetailsActivity"
+
+            android:exported="true" />
+
+        <service
+            android:name="com.moutimid.familywellness.Helper.MessagingService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity
+            android:name="com.moutimid.familywellness.user.home.Reminder.AlarmActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.moutimid.familywellness.user.home.Reminder.MedicineActivity"
+            android:exported="true" />
+        <activity
+            android:name="com.moutimid.familywellness.user.home.Reminder.MainActivity"
+            android:exported="true" />
+
+        <receiver android:name="com.moutimid.familywellness.user.home.Reminder.AlarmBroadcastReceiver" />
     </application>
 
 </manifest>

@@ -68,7 +68,7 @@
             android:layout_marginEnd="30dp"
             android:background="@drawable/edit_bg"
             android:fontFamily="@font/kanit_regular"
-            android:hint="@string/hint_email"
+            android:hint="email"
             android:inputType="textEmailAddress"
             android:padding="10dp"
             android:textColor="@color/black"

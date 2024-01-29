@@ -19,6 +19,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.fxn.stash.Stash;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
@@ -26,8 +27,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.moutamid.familywellness.R;
-import com.moutimid.familywellness.home.MainActivity;
-import com.moutimid.familywellness.model.UserModel;
+import com.moutimid.familywellness.user.home.MainActivity;
+import com.moutimid.familywellness.user.model.UserModel;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -71,7 +72,7 @@ public class SignupActivity extends AppCompatActivity {
                 String password = inputPassword.getText().toString().trim();
                 String name = inputName.getText().toString().trim();
                 String confirm_password = inputConfirmPassword.getText().toString().trim();
-
+                Stash.put("name", name);
                 if (TextUtils.isEmpty(name)) {
                     show_toast("Enter name", 0);
                     return;
@@ -120,7 +121,7 @@ public class SignupActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<Void> task) {
                                             show_toast("Account is created successfully", 1);
                                             startActivity(new Intent(SignupActivity.this, MainActivity.class));
-                                            finish();
+                                            finishAffinity();
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override

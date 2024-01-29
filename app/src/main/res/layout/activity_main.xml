@@ -5,7 +5,6 @@
     android:background="@color/background"
     android:orientation="vertical"
     android:padding="10dp"
-
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -14,8 +13,9 @@
         android:layout_marginTop="10dp">
 
         <ImageView
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
             android:src="@drawable/logo" />
 
         <TextView
@@ -25,10 +25,42 @@
             android:fontFamily="@font/kanit_extra_bold"
             android:gravity="center_vertical"
             android:text="Family Wellness Sync"
-            android:textSize="25dp"
+            android:layout_weight="1"
+            android:textSize="20dp"
             android:textStyle="bold" />
-    </LinearLayout>
 
+        <RelativeLayout
+            android:id="@+id/CustomCartIconContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp">
+
+
+            <ImageView
+                android:id="@+id/CustomCartIcon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:src="@drawable/new_cart" />
+
+            <TextView
+                android:id="@+id/CustomCartNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-18dp"
+                android:layout_toRightOf="@id/CustomCartIcon"
+                android:background="@drawable/circular2"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                android:text=""
+                android:textColor="#FFF"
+                android:textSize="11dp"
+
+                android:visibility="gone" />
+        </RelativeLayout>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -77,6 +109,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/pharmacy"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -122,7 +155,7 @@
         android:padding="10dp">
 
         <androidx.cardview.widget.CardView
-
+android:id="@+id/schedule"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -151,8 +184,9 @@
                     android:fontFamily="@font/kanit_medium"
                     android:gravity="center"
                     android:padding="8dp"
-
-                    android:text="Meeting Schedule"
+                    android:maxEms="1"
+                    android:maxLines="1"
+                    android:text="Medicine Schedule"
                     android:textColor="@color/white"
                     android:textSize="16dp" />
 
@@ -236,6 +270,44 @@
                 android:gravity="center"
                 android:padding="8dp"
                 android:text="Chatbot"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        app:cardBackgroundColor="@color/statusbar"
+        app:cardCornerRadius="10dp"
+
+        app:cardElevation="3dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@color/white"
+                android:padding="15dp"
+                android:src="@drawable/profile_user" />
+
+            <TextView
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/kanit_medium"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Profile"
                 android:textColor="@color/white"
                 android:textSize="16dp" />
 
