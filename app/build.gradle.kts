@@ -15,7 +15,7 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
-        setProperty("archivesBaseName", "SurveyApp-$versionName")
+        setProperty("archivesBaseName", "FamilyWellness-$versionName")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -29,6 +29,14 @@ android {
             )
         }
     }
+    buildFeatures {
+        viewBinding = true
+    }
+
+    viewBinding {
+        enable = true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -64,6 +72,8 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.fxn769:stash:1.3.2")
+
+    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
 
 
 }

@@ -19,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.moutamid.familywellness.R;
+import com.moutimid.familywellness.user.home.Chatgpt.AskGPT;
 import com.moutimid.familywellness.user.home.Pharmacy.AllCategoriesActivity;
 import com.moutimid.familywellness.user.home.Pharmacy.CartActivity;
 
@@ -64,7 +65,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, ProfileActivity.class));
             }
-        });  findViewById(R.id.schedule).setOnClickListener(new View.OnClickListener() {
+        });
+        findViewById(R.id.chatbot).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, AskGPT.class));
+            }
+        });
+        findViewById(R.id.schedule).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, com.moutimid.familywellness.user.home.Reminder.MainActivity.class));

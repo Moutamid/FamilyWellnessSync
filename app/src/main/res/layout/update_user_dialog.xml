@@ -15,6 +15,7 @@
             android:textAlignment="gravity"
             android:textSize="20sp"
             android:textColor="@color/white"
+            android:fontFamily="@font/kanit_bold"
             android:text="Update user"
             android:gravity="center_horizontal|center_vertical" />
 
@@ -24,9 +25,11 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:padding="10dp"
         android:hint="Enter name here"
         android:layout_marginVertical="50dp"
+        android:background="@drawable/edit_bg"
         android:id="@+id/update_username"
         android:layout_marginHorizontal="30dp"/>
 

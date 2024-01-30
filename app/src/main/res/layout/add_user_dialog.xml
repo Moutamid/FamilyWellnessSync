@@ -14,6 +14,7 @@
             android:layout_height="match_parent"
             android:textAlignment="gravity"
             android:textSize="20sp"
+            android:fontFamily="@font/kanit_bold"
             android:textColor="@color/white"
             android:text="Add new user"
             android:gravity="center_horizontal|center_vertical" />
@@ -24,10 +25,13 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:fontFamily="@font/kanit_regular"
         android:hint="Enter name here"
+        android:padding="@dimen/_10sdp"
         android:layout_marginVertical="50dp"
         android:id="@+id/add_username"
+        android:background="@drawable/edit_bg"
         android:layout_marginHorizontal="30dp"/>
 
 

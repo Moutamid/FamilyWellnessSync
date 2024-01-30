@@ -106,6 +106,9 @@
         <activity
             android:name="com.moutimid.familywellness.user.home.Reminder.MainActivity"
             android:exported="true" />
+        <activity
+            android:name="com.moutimid.familywellness.user.home.Chatgpt.AskGPT"
+            android:exported="true" />
 
         <receiver android:name="com.moutimid.familywellness.user.home.Reminder.AlarmBroadcastReceiver" />
     </application>

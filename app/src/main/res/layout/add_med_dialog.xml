@@ -16,6 +16,7 @@
             android:gravity="center_horizontal|center_vertical"
             android:text="Add Medicine"
             android:textAlignment="gravity"
+            android:fontFamily="@font/kanit_bold"
             android:textColor="@color/white"
             android:textSize="20sp" />
     </androidx.cardview.widget.CardView>
@@ -39,15 +40,17 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical|center_horizontal"
             android:textAlignment="gravity"
-            android:text="medicine name :"
+            android:fontFamily="@font/kanit_regular"
+            android:text="Medicine Name :"
             android:textSize="16sp" />
 
         <EditText
             android:id="@+id/add_med_name"
             android:layout_width="wrap_content"
-            android:ems="6"
+            android:ems="9"
+            android:layout_height="50dp"
             android:inputType="text"
-            android:layout_height="match_parent"
+            android:background="@drawable/edit_bg"
             />
 
 
@@ -64,14 +67,17 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical|center_horizontal"
             android:textAlignment="gravity"
-            android:text="quantity :"
+            android:fontFamily="@font/kanit_regular"
+
+            android:text="Quantity :"
             android:textSize="16sp" />
         <EditText
             android:id="@+id/add_med_qty"
             android:layout_width="wrap_content"
-            android:ems="6"
             android:layout_height="match_parent"
             android:inputType="number"
+            android:ems="9"
+            android:background="@drawable/edit_bg"
             />
 
     </LinearLayout>
@@ -88,6 +94,8 @@
             android:gravity="center_vertical|center_horizontal"
             android:textAlignment="gravity"
             android:text="Time :"
+            android:fontFamily="@font/kanit_regular"
+
             android:textSize="16sp" />
 
         <Button
@@ -95,6 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Select"
+            android:fontFamily="@font/kanit_regular"
             android:inputType="time" />
     </LinearLayout>
     <LinearLayout
@@ -110,6 +119,7 @@
             android:layout_height="match_parent"
             android:gravity="center_vertical|center_horizontal"
             android:textAlignment="gravity"
+            android:fontFamily="@font/kanit_regular"
             android:text="Repeat:"
             android:textSize="16sp" />
         <Switch
@@ -124,6 +134,8 @@
         android:id="@+id/chip_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
         app:chipSpacingHorizontal="0dp"
 
         >
