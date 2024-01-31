@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+       id="@+id/ProductID"
+       title="Medicines"
+       icon="@drawable/medicine" />
+    <tab
+       id="@+id/OffersID"
+       title="Orders"
+
+       iconTint="@color/white"
+       icon="@drawable/order" />
+    <tab
+       id="@+id/SalesMenID"
+       title="Categories"
+       iconTint="@color/white"
+       icon="@drawable/categories" />
+</tabs>

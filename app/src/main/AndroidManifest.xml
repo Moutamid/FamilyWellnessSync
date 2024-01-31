@@ -2,10 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
 
+    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -97,6 +99,7 @@
             </intent-filter>
         </service>
 
+
         <activity
             android:name="com.moutimid.familywellness.user.home.Reminder.AlarmActivity"
             android:exported="true" />
@@ -107,7 +110,12 @@
             android:name="com.moutimid.familywellness.user.home.Reminder.MainActivity"
             android:exported="true" />
         <activity
+            android:name="com.moutimid.familywellness.user.home.Order.OrderActivity"
+            android:exported="true" />
+        <activity
             android:name="com.moutimid.familywellness.user.home.Chatgpt.AskGPT"
+            android:exported="true" />        <activity
+            android:name="com.moutimid.familywellness.user.home.Reminder.AccountActivity"
             android:exported="true" />
 
         <receiver android:name="com.moutimid.familywellness.user.home.Reminder.AlarmBroadcastReceiver" />

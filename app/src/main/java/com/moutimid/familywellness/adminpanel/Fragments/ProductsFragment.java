@@ -1,8 +1,11 @@
 package com.moutimid.familywellness.adminpanel.Fragments;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.icu.lang.UCharacter;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +33,7 @@ import com.moutimid.familywellness.adminpanel.Model.AdminProduct;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class ProductsFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
@@ -76,6 +80,11 @@ public class ProductsFragment extends Fragment {
         ProductsFloatingActionButton = (Button) view.findViewById(R.id.ProductsFloatingBtnId);
 
         bar = view.findViewById(R.id.productProgressBar);
+        Dialog lodingbar = new Dialog(requireContext());
+        lodingbar.setContentView(R.layout.loading);
+        Objects.requireNonNull(lodingbar.getWindow()).setBackgroundDrawable(new ColorDrawable(UCharacter.JoiningType.TRANSPARENT));
+        lodingbar.setCancelable(false);
+        lodingbar.show();
 
         mDataBaseRef = FirebaseDatabase.getInstance("https://childfr-35a43-default-rtdb.firebaseio.com/").getReference().child("FamilyWillness").child("product");
         adminProducts = new ArrayList<>();
@@ -102,6 +111,7 @@ public class ProductsFragment extends Fragment {
                 }
                 adapter.notifyDataSetChanged();
                 bar.setVisibility(View.INVISIBLE);
+                lodingbar.dismiss();
             }
 
             @Override

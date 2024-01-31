@@ -31,7 +31,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:orientation="horizontal">
 
         <TextView
@@ -47,17 +47,18 @@
         <EditText
             android:id="@+id/add_med_name"
             android:layout_width="wrap_content"
-            android:ems="9"
-            android:layout_height="50dp"
-            android:inputType="text"
+            android:layout_height="40dp"
             android:background="@drawable/edit_bg"
-            />
+            android:inputType="text"
+            android:ems="6"
+
+            android:paddingStart="12dp" />
 
 
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
@@ -71,14 +72,16 @@
 
             android:text="Quantity :"
             android:textSize="16sp" />
+
         <EditText
             android:id="@+id/add_med_qty"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:inputType="number"
-            android:ems="9"
             android:background="@drawable/edit_bg"
-            />
+            android:ems="6"
+
+            android:paddingStart="12dp" />
 
     </LinearLayout>
     <LinearLayout
@@ -110,7 +113,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
-
+        android:visibility="gone"
         android:orientation="horizontal">
 
         <TextView
@@ -130,21 +133,23 @@
 
     </LinearLayout>
 
-    <com.google.android.material.chip.ChipGroup
-        android:id="@+id/chip_group"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        app:chipSpacingHorizontal="0dp"
-
-        >
-
-        <com.google.android.material.chip.Chip
-            android:id="@+id/sunday"
-            style="@style/Widget.MaterialComponents.Chip.Choice"
-            android:layout_width="wrap_content"
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:visibility="gone"
+
+            app:chipSpacingHorizontal="0dp"
+
+            >
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/sunday"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
             android:text="S"
             android:textSize="12sp"
              />

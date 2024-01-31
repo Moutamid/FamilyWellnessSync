@@ -1,6 +1,9 @@
 package com.moutimid.familywellness.authetications;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.icu.lang.UCharacter;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -29,6 +32,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.moutamid.familywellness.R;
 import com.moutimid.familywellness.user.home.MainActivity;
 import com.moutimid.familywellness.user.model.UserModel;
+
+import java.util.Objects;
 
 public class SignupActivity extends AppCompatActivity {
 
@@ -103,7 +108,13 @@ public class SignupActivity extends AppCompatActivity {
                     return;
                 }
 
-                progressBar.setVisibility(View.VISIBLE);
+//                progressBar.setVisibility(View.VISIBLE);
+                Dialog lodingbar = new Dialog(SignupActivity.this);
+                lodingbar.setContentView(R.layout.loading);
+                Objects.requireNonNull(lodingbar.getWindow()).setBackgroundDrawable(new ColorDrawable(UCharacter.JoiningType.TRANSPARENT));
+                lodingbar.setCancelable(false);
+                lodingbar.show();
+
                 //create user
                 auth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
@@ -121,12 +132,15 @@ public class SignupActivity extends AppCompatActivity {
                                         public void onComplete(@NonNull Task<Void> task) {
                                             show_toast("Account is created successfully", 1);
                                             startActivity(new Intent(SignupActivity.this, MainActivity.class));
+                                            lodingbar.dismiss();
                                             finishAffinity();
+
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-                                            show_toast("Something went worng. Please try again", 0);
+                                            lodingbar.dismiss();
+                                            show_toast("Something went wrong. Please try again", 0);
                                         }
                                     });
 

@@ -1,6 +1,9 @@
 package com.moutimid.familywellness.authetications;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
+import android.icu.lang.UCharacter;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -19,13 +22,20 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.fxn.stash.Stash;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.moutamid.familywellness.R;
 import com.moutimid.familywellness.adminpanel.AdminActivity;
 import com.moutimid.familywellness.user.home.MainActivity;
+
+import java.util.Objects;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -43,7 +53,6 @@ public class LoginActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         if (auth.getCurrentUser() != null) {
             if (auth.getCurrentUser().getEmail().equals("adminwellnessapp@gmail.com")) {
-//            LOGS USER IN ONCE IT FINDS HE HAD LOGGED IN!
                 startActivity(new Intent(LoginActivity.this, AdminActivity.class));
                 finish();
             }
@@ -51,7 +60,6 @@ public class LoginActivity extends AppCompatActivity {
             {
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 finish();
-
             }
         }
         // set the view now
@@ -103,7 +111,6 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                progressBar.setVisibility(View.VISIBLE);
 
                 //authenticate user
                 auth.signInWithEmailAndPassword(email, password)
@@ -124,17 +131,36 @@ public class LoginActivity extends AppCompatActivity {
 
                                     }
                                 } else {
-                                    show_toast("Successfully Login", 1);
+                                    Dialog lodingbar = new Dialog(LoginActivity.this);
+                                    lodingbar.setContentView(R.layout.loading);
+                                    Objects.requireNonNull(lodingbar.getWindow()).setBackgroundDrawable(new ColorDrawable(UCharacter.JoiningType.TRANSPARENT));
+                                    lodingbar.setCancelable(false);
+                                    lodingbar.show();
+
                                     if (email.equals("adminwellnessapp@gmail.com")) {
                                         Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
-
                                         startActivity(intent);
+                                        show_toast("Successfully Login", 1);
+                                        lodingbar.dismiss();
                                         finish();
                                     } else {
-                                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                        FirebaseDatabase.getInstance().getReference().child("FamilyWillness").child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                            @Override
+                                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                                String name = snapshot.child("name").getValue().toString();
+                                                Stash.put("name", name);
+                                                show_toast("Successfully Login", 1);
+                                                lodingbar.dismiss();
+                                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                                startActivity(intent);
+                                                finish();
+                                            }
 
-                                        startActivity(intent);
-                                        finish();
+                                            @Override
+                                            public void onCancelled(@NonNull DatabaseError error) {
+
+                                            }
+                                        });
                                     }
                                 }
                             }

@@ -1,6 +1,9 @@
 package com.moutimid.familywellness.adminpanel.Fragments;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.graphics.drawable.ColorDrawable;
+import android.icu.lang.UCharacter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,6 +26,7 @@ import com.moutimid.familywellness.adminpanel.Adapter.OrderAdapter;
 import com.moutimid.familywellness.adminpanel.Model.MyorderModel;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class OrderFregmant extends Fragment {
 
@@ -69,24 +73,30 @@ public class OrderFregmant extends Fragment {
         mAuth=FirebaseAuth.getInstance();
         CurrentUser = mAuth.getCurrentUser().getUid();
 
-        OrderItemRecyclerView =  view.findViewById(R.id.orderrecycler);
+        OrderItemRecyclerView = view.findViewById(R.id.orderrecycler);
         orderItemList = new ArrayList<MyorderModel>();
-        adapter = new OrderAdapter(getActivity(),orderItemList);
+        adapter = new OrderAdapter(getActivity(), orderItemList);
 
         OrderItemRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         OrderItemRecyclerView.setAdapter(adapter);
 
-        DatabaseReference roott= FirebaseDatabase.getInstance("https://childfr-35a43-default-rtdb.firebaseio.com/").getReference().child("FamilyWillness");
+        DatabaseReference roott = FirebaseDatabase.getInstance("https://childfr-35a43-default-rtdb.firebaseio.com/").getReference().child("FamilyWillness");
         DatabaseReference x = roott.child("order").child(CurrentUser);
+        Dialog lodingbar = new Dialog(requireContext());
+        lodingbar.setContentView(R.layout.loading);
+        Objects.requireNonNull(lodingbar.getWindow()).setBackgroundDrawable(new ColorDrawable(UCharacter.JoiningType.TRANSPARENT));
+        lodingbar.setCancelable(false);
+        lodingbar.show();
+
         x.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     orderItemList.clear();
 
-                        Log.d("datasnap", snapshot + " ");
+                    Log.d("datasnap", snapshot + " ");
 
-                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                             Log.d("datasnap_details", dataSnapshot + " ");
 
                             if (dataSnapshot.hasChild("status") && dataSnapshot.hasChild("token")) {
@@ -119,6 +129,7 @@ public class OrderFregmant extends Fragment {
                     orderItemList.clear();
                 }
                 adapter.notifyDataSetChanged();
+                lodingbar.dismiss();
             }
 
             @Override

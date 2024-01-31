@@ -1,6 +1,9 @@
 package com.moutimid.familywellness.adminpanel.Fragments;
 
 import android.app.Activity;
+import android.app.Dialog;
+import android.graphics.drawable.ColorDrawable;
+import android.icu.lang.UCharacter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,6 +26,7 @@ import com.moutimid.familywellness.adminpanel.Adapter.AdminOrderAdapter;
 import com.moutimid.familywellness.adminpanel.Model.MyorderModel;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class OrderConfirmFregmant extends Fragment {
 
@@ -77,6 +81,12 @@ public class OrderConfirmFregmant extends Fragment {
         OrderItemRecyclerView.setAdapter(adapter);
         DatabaseReference roott = FirebaseDatabase.getInstance("https://childfr-35a43-default-rtdb.firebaseio.com/").getReference().child("FamilyWillness");
         DatabaseReference x = roott.child("order");
+        Dialog lodingbar = new Dialog(requireContext());
+        lodingbar.setContentView(R.layout.loading);
+        Objects.requireNonNull(lodingbar.getWindow()).setBackgroundDrawable(new ColorDrawable(UCharacter.JoiningType.TRANSPARENT));
+        lodingbar.setCancelable(false);
+        lodingbar.show();
+
         ValueEventListener valueEventListener1 = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -111,6 +121,7 @@ public class OrderConfirmFregmant extends Fragment {
                     orderItemList.clear();
                 }
                 adapter.notifyDataSetChanged();
+                lodingbar.dismiss();
             }
 
             @Override

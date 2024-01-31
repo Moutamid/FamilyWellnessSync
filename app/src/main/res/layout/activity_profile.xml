@@ -23,21 +23,21 @@
             <ImageView
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginBottom="32dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="22dp"
                 android:onClick="backPress"
+
                 android:src="@drawable/baseline_arrow_back_ios_24"
                 android:tint="@color/black"
                 app:layout_constraintBottom_toTopOf="@+id/textView4"
-                app:layout_constraintEnd_toStartOf="@+id/textView3"
-                app:layout_constraintHorizontal_bias="0.615"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintEnd_toStartOf="@+id/textView3" />
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/kanit_bold"
                 android:text="Profile Details"
                 android:textColor="@color/black"
@@ -82,7 +82,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="19dp"
                 android:fontFamily="@font/kanit_regular"
                 android:gravity="center"
                 android:text="Ali Raza"
@@ -152,6 +152,45 @@
                             android:layout_toRightOf="@+id/imageView12"
                             android:fontFamily="@font/kanit_regular"
                             android:text="Edit Profile"
+                            android:textColor="@color/black"
+
+                            android:textSize="18dp" />
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/arrow" />
+
+                    </RelativeLayout>
+                   <RelativeLayout
+                        android:id="@+id/order"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+
+                        tools:layout_editor_absoluteX="10dp">
+
+                        <ImageView
+                            android:id="@+id/imageView22"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/cirlce_bg"
+                            android:backgroundTint="@color/app_color"
+                            android:padding="8dp"
+                            android:src="@drawable/order"
+                            app:tint="@color/white" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/imageView22"
+                            android:fontFamily="@font/kanit_regular"
+                            android:text="My Orders"
                             android:textColor="@color/black"
 
                             android:textSize="18dp" />
@@ -330,7 +369,8 @@
                             android:background="@drawable/cirlce_bg"
                             android:backgroundTint="#8682F9"
                             android:padding="8dp"
-                            android:src="@drawable/privacy" />
+                            android:src="@drawable/baseline_share_24"
+                            android:tint="@color/white" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -339,7 +379,7 @@
                             android:layout_marginLeft="10dp"
                             android:layout_toRightOf="@+id/imageView10"
                             android:fontFamily="@font/kanit_regular"
-                            android:text="Privacy Policy"
+                            android:text="Share"
                             android:textColor="@color/black"
                             android:textSize="18dp" />
 

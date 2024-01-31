@@ -4,11 +4,13 @@
     android:id="@+id/CatogryCardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:layout_marginStart="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginTop="15dp"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
     app:cardBackgroundColor="#FFFFFF"
-    app:cardCornerRadius="10dp"
+    app:cardCornerRadius="6dp"
     app:cardElevation="2dp">
 
     <LinearLayout
@@ -16,9 +18,10 @@
         android:layout_height="wrap_content"
         android:padding="5dp">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/adapterCatogryImage"
             android:layout_width="50dp"
+            android:layout_marginStart="@dimen/_15sdp"
             android:layout_height="60dp"
             android:src="@drawable/defualt_image"/>
 

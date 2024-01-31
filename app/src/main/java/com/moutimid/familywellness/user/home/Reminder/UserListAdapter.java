@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -79,12 +80,12 @@ public class UserListAdapter extends RecyclerView.Adapter {
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         TextView tv;
-        ImageButton deleteBtn;
+        ImageView deleteBtn;
         int id;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             tv = (TextView) itemView.findViewById(R.id.user_name);
-            deleteBtn = (ImageButton) itemView.findViewById(R.id.deleteUser);
+            deleteBtn = (ImageView) itemView.findViewById(R.id.deleteUser);
         }
     }
 

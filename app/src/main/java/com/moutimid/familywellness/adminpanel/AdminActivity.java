@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +31,8 @@ import com.moutimid.familywellness.adminpanel.Fragments.AdminOrderFregmant;
 import com.moutimid.familywellness.adminpanel.Fragments.CategoryFragment;
 import com.moutimid.familywellness.adminpanel.Fragments.ProductsFragment;
 import com.moutimid.familywellness.authetications.LoginActivity;
+import com.roughike.bottombar.BottomBar;
+import com.roughike.bottombar.OnTabSelectListener;
 
 import java.util.HashMap;
 
@@ -83,7 +86,27 @@ public class AdminActivity extends AppCompatActivity {
         });
         getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayout, new ProductsFragment()).commit();
         FragmentTitle.setText("All Products");
+        BottomBar bottomBar = (BottomBar) findViewById(R.id.bottomBar);
+        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
+            @Override
+            public void onTabSelected(@IdRes int id) {
+                Fragment SelectedFragment = null;
 
+                if (id == R.id.ProductID) {
+                    SelectedFragment = new ProductsFragment();
+                    FragmentTitle.setText("All Products");
+                } else if (id == R.id.OffersID) {
+                    SelectedFragment = new AdminOrderFregmant();
+                    FragmentTitle.setText("All Orders");
+                } else if (id == R.id.SalesMenID) {
+                    SelectedFragment = new CategoryFragment();
+                    FragmentTitle.setText("All Categories");
+                }
+
+                getSupportFragmentManager().beginTransaction().replace(R.id.FrameLayout, SelectedFragment).commit();
+
+            }
+        });
 
     }
 
