@@ -201,12 +201,6 @@ public static void checkApp(Activity activity) {
 
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        showCartIcon();
-        HandleTotalPriceToZeroIfNotExist();
-    }
 
     @Override
     protected void onResume() {

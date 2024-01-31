@@ -16,7 +16,8 @@
 
         <include
             android:id="@+id/ProductToolBar"
-            layout="@layout/main2_toolbar" />
+            layout="@layout/main2_toolbar"
+            android:visibility="gone"/>
         <ImageView
             android:layout_width="26dp"
             android:layout_height="26dp"
@@ -65,6 +66,7 @@
                     android:id="@+id/ImageContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
                     android:background="@color/white">
 
                     <ImageView
@@ -135,7 +137,6 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/kanit_regular"
                         android:layout_weight="2"
-                        android:text="mother care"
                         android:textColor="#000"
                         android:textSize="13dp" />
 
@@ -191,7 +192,6 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:fontFamily="@font/kanit_regular"
-                        android:text="25"
                         android:textColor="#000"
                         android:textSize="13dp" />
 

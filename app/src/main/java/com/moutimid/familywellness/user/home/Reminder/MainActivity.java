@@ -95,4 +95,8 @@ public class MainActivity extends AppCompatActivity {
         userlistAdapter.notifyDataSetChanged();
         recyclerView.setAdapter(userlistAdapter);
     }
+
+    public void back(View view) {
+        onBackPressed();
+    }
 }

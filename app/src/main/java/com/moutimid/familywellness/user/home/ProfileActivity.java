@@ -11,9 +11,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.fxn.stash.Stash;
 import com.google.firebase.auth.FirebaseAuth;
 import com.moutamid.familywellness.R;
-import com.moutimid.familywellness.authetications.AccountActivity;
 import com.moutimid.familywellness.authetications.LoginActivity;
 import com.moutimid.familywellness.user.home.Order.OrderActivity;
+import com.moutimid.familywellness.user.home.Reminder.AccountActivity;
 
 public class ProfileActivity extends AppCompatActivity {
     TextView name_txt, name_latter, textView7;
@@ -41,7 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
         profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                startActivity(new Intent(ProfileActivity.this, AccountActivity.class));
+                startActivity(new Intent(ProfileActivity.this, AccountActivity.class));
             }
         });
         order.setOnClickListener(new View.OnClickListener() {
@@ -75,6 +75,14 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        name_txt.setText(Stash.getString("name"));
+        char c = Stash.getString("name").charAt(0);
+        name_latter.setText(c + "");
     }
 
     public void backPress(View view) {

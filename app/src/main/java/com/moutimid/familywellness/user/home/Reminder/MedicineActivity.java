@@ -174,7 +174,7 @@ public class MedicineActivity extends AppCompatActivity implements TimePickerDia
     }
 
     public void setChildrenEnabled(ChipGroup chipGroup, Boolean enable) {
-        for(int i=0; i<chipGroup.getChildCount(); i++){
+        for (int i = 0; i < chipGroup.getChildCount(); i++) {
             chipGroup.getChildAt(i).setEnabled(enable);
         }
 
@@ -182,6 +182,10 @@ public class MedicineActivity extends AppCompatActivity implements TimePickerDia
 
     @Override
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-        medTime.setText(hourOfDay + ":"+minute);
+        medTime.setText(hourOfDay + ":" + minute);
+    }
+
+    public void back(View view) {
+        onBackPressed();
     }
 }

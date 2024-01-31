@@ -36,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:paddingHorizontal="20dp"
-
+android:fontFamily="@font/kanit_bold"
 
         android:layout_alignTop="@id/alarm_card"
 
@@ -56,6 +56,7 @@
         android:paddingHorizontal="20dp"
         android:gravity="center_vertical|center_horizontal"
         android:textAlignment="gravity"
+        android:fontFamily="@font/kanit_regular"
 
         android:layout_alignTop="@id/alarm_user_name"
 
@@ -69,10 +70,12 @@
         android:layout_height="160dp"
         android:layout_alignTop="@id/alarm_desc"
 android:layout_marginHorizontal="10dp"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="50dp"
+        >
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp">
 
 
             <TextView
@@ -84,6 +87,8 @@ android:layout_marginHorizontal="10dp"
                 android:textAlignment="gravity"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:fontFamily="@font/kanit_regular"
+
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -103,6 +108,8 @@ android:layout_marginHorizontal="10dp"
                 android:text="Qty: 10"
                 android:textAlignment="gravity"
                 android:textStyle="bold"
+                android:fontFamily="@font/kanit_regular"
+
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 
@@ -115,6 +122,8 @@ android:layout_marginHorizontal="10dp"
                 android:layout_marginBottom="68dp"
                 android:gravity="center_horizontal|center_vertical"
                 android:text="10:45 PM"
+                android:fontFamily="@font/kanit_regular"
+
                 android:textAlignment="gravity"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -124,11 +133,10 @@ android:layout_marginHorizontal="10dp"
                 android:id="@+id/alarm_took"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
                 android:layout_marginTop="20dp"
                 android:text="Took Medicine"
                 android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/alarm_med_time" />
 
@@ -141,6 +149,7 @@ android:layout_marginHorizontal="10dp"
                 android:layout_marginRight="16dp"
                 android:text="Snooze Alarm"
                 android:textAllCaps="false"
+                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/alarm_med_quantity" />
 
@@ -157,7 +166,7 @@ android:layout_marginHorizontal="10dp"
         android:gravity="center_horizontal|center_vertical"
         android:textColor="@android:color/holo_red_light"
         android:layout_marginTop="191dp"
-        android:text="Please take the medicines on time.\nAvoid snoozing the reminder." />
+        android:text="Please take the medicines on time"/>
 
 
 </RelativeLayout>

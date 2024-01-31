@@ -1,6 +1,5 @@
 package com.moutimid.familywellness.user.home.Pharmacy;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,7 +28,7 @@ import java.util.HashMap;
 public class ProductInfoActivity extends AppCompatActivity {
     private TextView mPerson_name;
     private ImageView mPerson_image;
-    private String ProductName, ProductPrice, ProductImage, ProductNExpiryDate, ProductIsFavorite, IsOffered;
+    private String ProductName, ProductPrice, ProductImage, ProductNExpiryDate, ProductIsFavorite, IsOffered, ProductQuantity, ProductCategory;
     //xml views
     private ImageView PImage, PIsFav;
     private TextView PName, PCategory, PAmount, PPrice, OldPrice, OfferRate, PExpiryDate;
@@ -52,16 +51,12 @@ public class ProductInfoActivity extends AppCompatActivity {
         CurrentUser = mAuth.getCurrentUser();
         UserId = CurrentUser.getUid();
 
-
-        //toolbar
-//        mToolbar =(Toolbar)findViewById(R.id.ProductToolBar);
-//        setSupportActionBar(mToolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         //have sending data
         ProductName = getIntent().getStringExtra("Product Name");
         ProductPrice = getIntent().getStringExtra("Product Price");
         ProductImage = getIntent().getStringExtra("Product Image");
+        ProductQuantity = getIntent().getStringExtra("Product Quantity");
+        ProductCategory = getIntent().getStringExtra("Product Category");
         ProductNExpiryDate = getIntent().getStringExtra("Product ExpiryDate");
         ProductIsFavorite = getIntent().getStringExtra("Product IsFavorite");
         IsOffered = getIntent().getStringExtra("Is Offered");
@@ -91,7 +86,8 @@ public class ProductInfoActivity extends AppCompatActivity {
         CheckCartContainer = (RelativeLayout) findViewById(R.id.CheckCartContainer);
         Back = (Button) findViewById(R.id.BackBtn);
         Confirm = (Button) findViewById(R.id.ConformBtn);
-
+PAmount.setText(ProductQuantity);
+        PCategory.setText(ProductCategory);
         RefreshContainers();
     }
 

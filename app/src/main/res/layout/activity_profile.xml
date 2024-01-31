@@ -178,7 +178,7 @@
                             android:layout_height="30dp"
                             android:layout_marginTop="8dp"
                             android:background="@drawable/cirlce_bg"
-                            android:backgroundTint="@color/app_color"
+                            android:backgroundTint="#FF5722"
                             android:padding="8dp"
                             android:src="@drawable/order"
                             app:tint="@color/white" />

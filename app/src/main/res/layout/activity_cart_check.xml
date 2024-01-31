@@ -80,7 +80,6 @@
             android:background="@drawable/edit_bg"
             android:fontFamily="@font/kanit_regular"
             android:hint="Enter  Email"
-            android:inputType="number"
             android:padding="12dp"
             android:textColor="@color/textColor"
             android:textColorHint="@color/textColor"

@@ -5,13 +5,22 @@ public class CategoryProductInfo {
     private String ProductName;
     private String ProductPrice;
     private String ProductExpiryDate;
+    private String ProductCategory;
+    private String ProductQuatinty;
     private boolean IsFavorite;
-
     public CategoryProductInfo(){
 
     }
 
-    public CategoryProductInfo(String ProductImage, String ProductName, String ProductPrice, String ProductExpiryDate, boolean IsFavorite){
+    public CategoryProductInfo(String ProductImage, String ProductName, String ProductPrice, String ProductExpiryDate, boolean IsFavorite, String ProductCategory, String ProductQuatinty ){
+        this.ProductImage = ProductImage;
+        this.ProductName = ProductName;
+        this.ProductPrice = ProductPrice;
+        this.ProductExpiryDate = ProductExpiryDate;
+        this.IsFavorite = IsFavorite;
+        this.ProductCategory = ProductCategory;
+        this.ProductQuatinty = ProductQuatinty;
+    }  public CategoryProductInfo(String ProductImage, String ProductName, String ProductPrice, String ProductExpiryDate, boolean IsFavorite){
         this.ProductImage = ProductImage;
         this.ProductName = ProductName;
         this.ProductPrice = ProductPrice;
@@ -57,5 +66,21 @@ public class CategoryProductInfo {
 
     public void setFavorite(boolean favorite) {
         IsFavorite = favorite;
+    }
+
+    public String getProductCategory() {
+        return ProductCategory;
+    }
+
+    public void setProductCategory(String productCategory) {
+        ProductCategory = productCategory;
+    }
+
+    public String getProductQuatinty() {
+        return ProductQuatinty;
+    }
+
+    public void setProductQuatinty(String productQuatinty) {
+        ProductQuatinty = productQuatinty;
     }
 }

@@ -65,6 +65,8 @@ public class CategoryActivity extends AppCompatActivity {
                 intent.putExtra("Product Price", product.getProductPrice());
                 intent.putExtra("Product Price", product.getProductPrice());
                 intent.putExtra("Product Image", product.getProductImage());
+                intent.putExtra("Product Quantity", product.getProductQuatinty());
+                intent.putExtra("Product Category", product.getProductCategory());
                 intent.putExtra("Product ExpiryDate", product.getProductExpiryDate());
                 intent.putExtra("Product IsFavorite", String.valueOf(product.getIsFavorite()));
                 intent.putExtra("Is Offered", "no");
@@ -101,8 +103,8 @@ public class CategoryActivity extends AppCompatActivity {
                         final String ProductPrice = dataSnapshot.child("price").getValue().toString();
                         final String ProductImage = dataSnapshot.child("image").getValue().toString();
                         final String ProductExpiryDate = dataSnapshot.child("details").getValue().toString();
-//                        final String ProductPrice = dataSnapshot.child("price").getValue().toString();
-//                        final String ProductQuatinty = dataSnapshot.child("quantity").getValue().toString();
+                        final String ProductCategory = dataSnapshot.child("category").getValue().toString();
+                        final String ProductQuatinty = dataSnapshot.child("quantity").getValue().toString();
 
                         //check favorites
                         DatabaseReference Root = FirebaseDatabase.getInstance("https://childfr-35a43-default-rtdb.firebaseio.com/").getReference().child("FamilyWillness");
@@ -111,9 +113,9 @@ public class CategoryActivity extends AppCompatActivity {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if (snapshot.exists()) {
-                                    CategoryProducts.add(new CategoryProductInfo(ProductImage, ProductName, ProductPrice, ProductExpiryDate, true));
+                                    CategoryProducts.add(new CategoryProductInfo(ProductImage, ProductName, ProductPrice, ProductExpiryDate, true, ProductCategory, ProductQuatinty));
                                 } else {
-                                    CategoryProducts.add(new CategoryProductInfo(ProductImage, ProductName, ProductPrice, ProductExpiryDate, false));
+                                    CategoryProducts.add(new CategoryProductInfo(ProductImage, ProductName, ProductPrice, ProductExpiryDate, false, ProductCategory, ProductQuatinty));
                                 }
                                 adapter.notifyDataSetChanged();
                             }

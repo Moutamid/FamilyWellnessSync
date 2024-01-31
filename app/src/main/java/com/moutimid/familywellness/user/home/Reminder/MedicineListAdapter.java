@@ -109,7 +109,7 @@ public class MedicineListAdapter extends RecyclerView.Adapter{
                             PendingIntent pendingIntent = PendingIntent.getBroadcast(context,Integer.parseInt(user_id+""+((MedicineHolder) holder).id),intent, PendingIntent.FLAG_MUTABLE);
                             alarmManager.set(AlarmManager.RTC_WAKEUP,cal.getTimeInMillis(),pendingIntent);
 
-                            Toast.makeText(context, "Reminder set for "+c.getString(1)+" on "+cal.get(Calendar.HOUR)+":"+cal.get(Calendar.MINUTE) + ", "+cal.get(Calendar.DATE)+"/"+cal.get(Calendar.MONTH)+"/"+cal.get(Calendar.YEAR), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(context, "Reminder set for "+c.getString(1)+MINUTE) + ", "+cal.get(Calendar.DATE)+"/"+cal.get(Calendar.MONTH)+"/"+cal.get(Calendar.YEAR), Toast.LENGTH_LONG).show();
                         }
                         else{
                             int ct=1;
@@ -127,7 +127,7 @@ public class MedicineListAdapter extends RecyclerView.Adapter{
                                 }
                                 ct++;
                             }
-                            Toast.makeText(context, "Reminder set for "+c.getString(1)+" on "+cal.get(Calendar.HOUR)+":"+cal.get(Calendar.MINUTE), Toast.LENGTH_SHORT).show();
+//                            Toast.makeText(context, "Reminder set for "+c.getString(1)+" on "+cal.get(Calendar.HOUR)+":"+cal.get(Calendar.MINUTE), Toast.LENGTH_SHORT).show();
                         }
 
                     }

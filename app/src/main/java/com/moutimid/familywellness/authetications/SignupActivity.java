@@ -78,6 +78,7 @@ public class SignupActivity extends AppCompatActivity {
                 String name = inputName.getText().toString().trim();
                 String confirm_password = inputConfirmPassword.getText().toString().trim();
                 Stash.put("name", name);
+                Stash.put("password", password);
                 if (TextUtils.isEmpty(name)) {
                     show_toast("Enter name", 0);
                     return;
@@ -127,6 +128,7 @@ public class SignupActivity extends AppCompatActivity {
                                     UserModel userModel = new UserModel();
                                     userModel.email = email;
                                     userModel.name = name;
+                                    userModel.password = password;
                                     FirebaseDatabase.getInstance().getReference().child("FamilyWillness").child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(userModel).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
