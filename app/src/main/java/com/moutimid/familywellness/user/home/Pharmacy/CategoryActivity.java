@@ -23,6 +23,10 @@ import com.moutimid.familywellness.user.adapter.CategoryproductAdapter;
 import com.moutimid.familywellness.user.model.CategoryProductInfo;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CategoryActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
@@ -105,27 +109,28 @@ public class CategoryActivity extends AppCompatActivity {
                         final String ProductExpiryDate = dataSnapshot.child("details").getValue().toString();
                         final String ProductCategory = dataSnapshot.child("category").getValue().toString();
                         final String ProductQuatinty = dataSnapshot.child("quantity").getValue().toString();
-
-                        //check favorites
-                        DatabaseReference Root = FirebaseDatabase.getInstance("https://childfr-35a43-default-rtdb.firebaseio.com/").getReference().child("FamilyWillness");
-                        DatabaseReference x = Root.child("favourites").child(UserId).child(ProductName);
-                        ValueEventListener vvalueEventListener = new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                if (snapshot.exists()) {
-                                    CategoryProducts.add(new CategoryProductInfo(ProductImage, ProductName, ProductPrice, ProductExpiryDate, true, ProductCategory, ProductQuatinty));
-                                } else {
-                                    CategoryProducts.add(new CategoryProductInfo(ProductImage, ProductName, ProductPrice, ProductExpiryDate, false, ProductCategory, ProductQuatinty));
-                                }
-                                adapter.notifyDataSetChanged();
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
-                            }
-                        };
-                        x.addListenerForSingleValueEvent(vvalueEventListener);
+                   CategoryProducts.add(new CategoryProductInfo(ProductImage, ProductName, ProductPrice, ProductExpiryDate, false, ProductCategory, ProductQuatinty));
                     }
+                    Collections.sort(CategoryProducts, new Comparator<CategoryProductInfo>() {
+                        @Override
+                        public int compare(CategoryProductInfo o1, CategoryProductInfo o2) {
+                            // Define the order of categories based on priorities
+                            Map<String, Integer> categoryPriorities = new HashMap<>();
+                            categoryPriorities.put("Vitamin & Nutrition", 1);
+                            categoryPriorities.put("Personal Care", 2);
+                            categoryPriorities.put("Medicines", 3);
+                            categoryPriorities.put("Mother & Baby", 4);
+
+                            // Compare products based on category priorities
+                            return Integer.compare(categoryPriorities.get(o1.getProductCategory()), categoryPriorities.get(o2.getProductCategory()));
+                        }
+                    });
+
+                    // Update your original list with the sorted list
+                    CategoryProducts.clear();
+                    CategoryProducts.addAll(CategoryProducts);
+                    adapter.notifyDataSetChanged();
+
                 }
             }
 

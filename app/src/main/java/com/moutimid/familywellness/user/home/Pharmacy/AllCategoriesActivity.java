@@ -22,7 +22,11 @@ import com.moutimid.familywellness.user.model.HorizontalCategoryModel;
 import com.moutimid.familywellness.user.model.category;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AllCategoriesActivity extends AppCompatActivity {
     private DatabaseReference m;
@@ -73,20 +77,33 @@ public class AllCategoriesActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    category my_user = new category();
-                    my_user = ds.getValue(category.class);
+                    category my_user = ds.getValue(category.class);
                     lastmodels.add(new HorizontalCategoryModel(my_user.getImage(), ds.getKey().toString()));
                 }
+                Collections.sort(lastmodels, new Comparator<HorizontalCategoryModel>() {
+                    @Override
+                    public int compare(HorizontalCategoryModel o1, HorizontalCategoryModel o2) {
+                        // Define the order of categories based on priorities
+                        Map<String, Integer> categoryPriorities = new HashMap<>();
+                        categoryPriorities.put("Vitamin & Nutrition", 1);
+                        categoryPriorities.put("Personal Care", 2);
+                        categoryPriorities.put("Medicines", 3);
+                        categoryPriorities.put("Mother & Baby", 4);
+
+                        // Compare products based on category priorities
+                        return Integer.compare(categoryPriorities.get(o1.getProducttitle()), categoryPriorities.get(o2.getProducttitle()));
+                    }
+                });
                 content_rcv.setAdapter(my_adapter);
+                my_adapter.notifyDataSetChanged();  // Corrected line
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Handle onCancelled
             }
         };
         m.addListenerForSingleValueEvent(eventListener);
-
-
     }
 
     private void filter(String text) {
