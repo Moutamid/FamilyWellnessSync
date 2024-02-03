@@ -111,24 +111,7 @@ public class CategoryActivity extends AppCompatActivity {
                         final String ProductQuatinty = dataSnapshot.child("quantity").getValue().toString();
                    CategoryProducts.add(new CategoryProductInfo(ProductImage, ProductName, ProductPrice, ProductExpiryDate, false, ProductCategory, ProductQuatinty));
                     }
-                    Collections.sort(CategoryProducts, new Comparator<CategoryProductInfo>() {
-                        @Override
-                        public int compare(CategoryProductInfo o1, CategoryProductInfo o2) {
-                            // Define the order of categories based on priorities
-                            Map<String, Integer> categoryPriorities = new HashMap<>();
-                            categoryPriorities.put("Vitamin & Nutrition", 1);
-                            categoryPriorities.put("Personal Care", 2);
-                            categoryPriorities.put("Medicines", 3);
-                            categoryPriorities.put("Mother & Baby", 4);
 
-                            // Compare products based on category priorities
-                            return Integer.compare(categoryPriorities.get(o1.getProductCategory()), categoryPriorities.get(o2.getProductCategory()));
-                        }
-                    });
-
-                    // Update your original list with the sorted list
-                    CategoryProducts.clear();
-                    CategoryProducts.addAll(CategoryProducts);
                     adapter.notifyDataSetChanged();
 
                 }
