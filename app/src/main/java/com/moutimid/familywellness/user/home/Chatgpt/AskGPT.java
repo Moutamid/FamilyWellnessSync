@@ -4,14 +4,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Toast;
-import androidx.lifecycle.ViewModelProviders;
-
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.android.volley.Request;
@@ -21,6 +21,9 @@ import com.android.volley.RetryPolicy;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.moutamid.familywellness.R;
 import com.moutamid.familywellness.databinding.ActivityChatGptBinding;
 import com.moutimid.familywellness.Helper.GPTViewModel;
@@ -42,7 +45,7 @@ public final class AskGPT extends AppCompatActivity {
     private ArrayList<GPTModel> messages;
 
     GPTViewModel viewModel;
-
+    String keyValue;
     String url = "https://api.openai.com/v1/chat/completions";
 
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -52,7 +55,24 @@ public final class AskGPT extends AppCompatActivity {
 
         //ViewModel Bind
         viewModel = ViewModelProviders.of(this).get(GPTViewModel.class);
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        DatabaseReference keyRef = mDatabase.child("FamilyWillness").child("Key").child("key");
+
+        // Read from the database
+        keyRef.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                DataSnapshot dataSnapshot = task.getResult();
+                if (dataSnapshot.exists()) {
+                    keyValue = dataSnapshot.getValue(String.class);
+                    Log.d("FirebaseData", "Key Value: " + keyValue);
+                } else {
+                    Log.d("FirebaseData", "No such document");
+                }
+            } else {
+                Log.d("FirebaseData", "get failed with ", task.getException());
+            }
+        });
 
         //Status bar color
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -152,7 +172,7 @@ public final class AskGPT extends AppCompatActivity {
             public Map<String, String> getHeaders() {
                 Map<String, String> params = new HashMap<>();
                 params.put("Content-Type", "application/json");
-                params.put("Authorization", "Bearer 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");
+                params.put("Authorization", "Bearer "+keyValue);
                 return params;
             }
         };

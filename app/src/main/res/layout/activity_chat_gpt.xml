@@ -91,7 +91,6 @@
 
         <ImageView
             android:id="@+id/send"
-
             android:layout_width="@dimen/_24sdp"
             android:layout_height="@dimen/_24sdp"
             android:layout_alignParentEnd="true"
