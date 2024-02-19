@@ -129,4 +129,7 @@ public class AllCategoriesActivity extends AppCompatActivity {
     }
 
 
+    public void backPress(View view) {
+        onBackPressed();
+    }
 }
