@@ -66,7 +66,7 @@ public class APIService {
             public Map<String, String> getHeaders() {
                 Map<String, String> params = new HashMap<>();
                 params.put("Content-Type", "application/json");
-                params.put("Authorization", "Bearer YOUR_API_KEY");
+                params.put("Authorization", "Bearer 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");
                 return params;
             }
         };
@@ -80,8 +80,8 @@ public class APIService {
             }
 
             public void retry(@Nullable VolleyError error) {
-                Toast toast = Toast.makeText(context, (CharSequence) "API Hatası", Toast.LENGTH_SHORT);
-                toast.show();
+//                Toast toast = Toast.makeText(context, (CharSequence) "API Hatası", Toast.LENGTH_SHORT);
+//                toast.show();
             }
         }));
         queue.add(postRequest);

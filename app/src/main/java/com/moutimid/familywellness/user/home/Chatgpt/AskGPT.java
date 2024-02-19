@@ -72,9 +72,8 @@ public final class AskGPT extends AppCompatActivity {
 
 
         //onClickListener
-        binding.animationView.setOnClickListener(it -> {
+        binding.send.setOnClickListener(it -> {
             if (binding.txtChat.getText().length() > 0) {
-                binding.animationView.playAnimation();
                 hideKeyboardFrom(getApplicationContext(), it);
                 messages.add(new GPTModel(binding.txtChat.getText().toString(), "user"));
                 message_adapter.notifyDataSetChanged();
@@ -87,7 +86,7 @@ public final class AskGPT extends AppCompatActivity {
             } else {
                 runOnUiThread((Runnable) (new Runnable() {
                     public void run() {
-                        Toast toast = Toast.makeText(getApplicationContext(), (CharSequence) "Mesaj giriniz", Toast.LENGTH_SHORT);
+                        Toast toast = Toast.makeText(getApplicationContext(), (CharSequence) "Please write here", Toast.LENGTH_SHORT);
                         toast.show();
                     }
                 }));
@@ -153,7 +152,7 @@ public final class AskGPT extends AppCompatActivity {
             public Map<String, String> getHeaders() {
                 Map<String, String> params = new HashMap<>();
                 params.put("Content-Type", "application/json");
-                params.put("Authorization", "Bearer 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");
+                params.put("Authorization", "Bearer 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");
                 return params;
             }
         };
